@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import GenerateSearchMain from "./components/shopify-search/search-main.jsx"
@@ -19,6 +18,8 @@ class App extends Component {
       savedResults: [newValue]
     }
   }
+// this may not be necessary after you stop using hard-coded data, double check
+// whether you can directly compare the saved objects to one another
 
   checkSameObject = ((object1, object2) => {
     return (object1.name === object2.name &&
@@ -60,6 +61,15 @@ class App extends Component {
     this.setState({savedResults: newSavedResults})
   }
 
+  _handleSearchInput = event => {
+    query {
+
+    }
+
+  }
+
+
+
   render() {
     return (
       <div className="App">
@@ -70,7 +80,11 @@ class App extends Component {
           searchResults={this.state.searchResults}
           savedResults={this.state.savedResults}
           handleSaveResult={this._handleSaveResult}
+
           checkIncludes={this.checkIncludes}
+
+          handleSearchInput={this._handleSearchInput}
+
         />
         <GenerateSavedResultsTable
           savedResults={this.state.savedResults}

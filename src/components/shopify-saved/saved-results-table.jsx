@@ -11,20 +11,21 @@ const GenerateSavedResultsTable = (props) => {
   })
 
   return(
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Language</th>
-          <th>Latest tag</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {generateSavedResults}
-      </tbody>
-    </table>
-
+    <main class="container-right">
+      <table>
+        <thead>
+          <tr>
+            <th className="table-header-name">Name</th>
+            <th className="table-header-language">Language</th>
+            <th className="table-header-tag">Latest tag</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {generateSavedResults}
+        </tbody>
+      </table>
+    </main>
   )
 }
 

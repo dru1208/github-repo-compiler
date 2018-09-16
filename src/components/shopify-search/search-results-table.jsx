@@ -16,9 +16,9 @@ const GenerateSearchResultTable = (props) => {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Language</th>
-          <th>Latest tag</th>
+          <th className="table-header-name">Name</th>
+          <th className="table-header-language">Language</th>
+          <th className="table-header-tag">Latest tag</th>
           <th></th>
         </tr>
       </thead>

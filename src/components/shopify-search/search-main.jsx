@@ -5,7 +5,7 @@ import GenerateSearchResultTable from './search-results-table.jsx'
 const GenerateSearchMain = (props) => {
 
   return(
-    <main className="container">
+    <main className="container-left">
       <GenerateSearchBar />
       <GenerateSearchResultTable
         searchResults={props.searchResults}

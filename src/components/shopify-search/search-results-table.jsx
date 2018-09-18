@@ -12,6 +12,7 @@ const SearchResultTable = (props) => {
       key={index}/>
   })
 
+
   return(
     <table>
       <thead>
@@ -27,7 +28,6 @@ const SearchResultTable = (props) => {
       </tbody>
     </table>
   )
-
 }
 
 export default SearchResultTable

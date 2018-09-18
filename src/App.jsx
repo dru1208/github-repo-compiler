@@ -13,13 +13,13 @@ import processRepositories from './searchResultManagement.js'
 import { request, GraphQLClient } from 'graphql-request'
 
 
-
+const dotenv = require('dotenv')
 const endpoint = "https://api.github.com/graphql"
 
 const client = new GraphQLClient (
   endpoint, {
     headers: {
-      authorization: 'Bearer d2e36af24a008d1f93253a29d41de44c321b169c'
+      authorization: `Bearer ${process.env.REACT_APP_GITHUB_AUTH_TOKEN}`
     }
   }
 )

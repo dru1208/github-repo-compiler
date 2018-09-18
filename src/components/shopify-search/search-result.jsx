@@ -2,7 +2,6 @@ import React from 'react'
 
 
 
-// figure out how to send the value "result" through the button
 const SearchResult = (props) => {
 
   const generateAddButton = (result => {

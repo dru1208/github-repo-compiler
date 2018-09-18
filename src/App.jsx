@@ -6,14 +6,14 @@ import SavedResultsTable from "./components/shopify-saved/saved-results-table.js
 
 
 import { query, variables } from './queryStrings.js';
-import { checkIncludes, removeObject, newValue} from './objectHelperFunctions.js'
+import { checkIncludes, removeObject} from './objectHelperFunctions.js'
 import processRepositories from './searchResultManagement.js'
 
 
-import { request, GraphQLClient } from 'graphql-request'
+import { GraphQLClient } from 'graphql-request'
 
 
-const dotenv = require('dotenv')
+
 const endpoint = "https://api.github.com/graphql"
 
 const client = new GraphQLClient (

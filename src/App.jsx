@@ -4,24 +4,44 @@ import './App.css';
 import SearchMain from "./components/shopify-search/search-main.jsx";
 import SavedResultsTable from "./components/shopify-saved/saved-results-table.jsx";
 
+
 import { query, variables } from './queryStrings.js';
 import { checkIncludes, removeObject, newValue} from './objectHelperFunctions.js'
+import processRepositories from './searchResultManagement.js'
 
 
+import { request, GraphQLClient } from 'graphql-request'
+
+
+
+const endpoint = "https://api.github.com/graphql"
+
+const client = new GraphQLClient (
+  endpoint, {
+    headers: {
+      authorization: 'Bearer d2e36af24a008d1f93253a29d41de44c321b169c'
+    }
+  }
+)
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchResults: [
-        {name: "Shopify/Timber", language: "Liquid", latest_tag: "v1.0"},
-        {name: "Shopify/shopify_app", language: "Ruby", latest_tag: "v5.0.2"},
-        {name: "Shopify/shopify_api", language: "Ruby", latest_tag: "v4.0.1"},
-        newValue],
-      savedResults: [newValue],
+      searchResults: [],
+      savedResults: [],
       query: ""
     }
   }
+
+
+  main = async () => {
+    const data = await client.request(query, variables(this.state.query))
+    const repos = data.search.edges
+    const processedRepos = processRepositories(repos)
+    this.setState({searchResults: processedRepos})
+  }
+
 
 
   _handleSaveResult = event => {
@@ -40,12 +60,16 @@ class App extends Component {
 
   _handleSearchInput = searchInput => {
     if (this.state.query !== searchInput && searchInput !== "") {
-      this.setState({query: searchInput})
-      console.log(this.state.query)
-    } else {
-      console.log("your query does not match requirements")
+      this.setState({query: searchInput}, async () => {
+        this.main()
+      })
     }
   }
+
+  _searchBarEmpty = () => {
+    this.setState({searchResults: []})
+  }
+
 
 
 
@@ -63,6 +87,8 @@ class App extends Component {
           checkIncludes={checkIncludes}
 
           handleSearchInput={this._handleSearchInput}
+
+          searchBarEmpty={this._searchBarEmpty}
 
         />
         <SavedResultsTable

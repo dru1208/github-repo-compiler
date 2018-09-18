@@ -26,7 +26,7 @@ const query = `query GithubRepoSearch ($query: String!)
 
 const variables = (queryString) => {
   return `{
-    query: ${queryString  }
+    "query": "${queryString}"
   }`
 }
 

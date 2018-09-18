@@ -10,12 +10,16 @@ class SearchBar extends Component {
 
   _handleSearchChange = (event => {
     if (this.state.searchValue !== event.target.value) {
-      this.setState({searchValue: event.target.value})
+      this.setState({searchValue: event.target.value}, async () => {
+        if (this.state.searchValue === "") {
+          this.props.searchBarEmpty()
+        }
+      })
     }
   })
 
   _handleKeyPressSearch = (event => {
-    if (event.key === "Enter" && event.target.value !== "") {
+    if (event.key === "Enter") {
       this.props.handleSearchInput(this.state.searchValue)
     }
   })

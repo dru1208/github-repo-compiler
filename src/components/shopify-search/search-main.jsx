@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
-import GenerateSearchBar from './searchbar.jsx'
-import GenerateSearchResultTable from './search-results-table.jsx'
+import SearchBar from './searchbar.jsx'
+import SearchResultTable from './search-results-table.jsx'
 
-const GenerateSearchMain = (props) => {
+const SearchMain = (props) => {
 
   return(
     <main className="container-left">
-      <GenerateSearchBar />
-      <GenerateSearchResultTable
+      <SearchBar
+        handleSearchInput={props.handleSearchInput}
+      />
+      <SearchResultTable
         searchResults={props.searchResults}
         savedResults={props.savedResults}
         handleSaveResult={props.handleSaveResult}
@@ -18,4 +20,4 @@ const GenerateSearchMain = (props) => {
 
 }
 
-export default GenerateSearchMain
+export default SearchMain

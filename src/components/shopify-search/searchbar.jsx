@@ -1,22 +1,38 @@
 import React, {Component} from 'react'
 
-const GenerateSearchBar = (props) => {
+class SearchBar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      searchValue: ""
+    }
+  }
 
-
-  _handleKeyPressSearch = (event => {
-    if (event.key === "Enter" && event.target.value !== "") {
-      props.handleSearchInput(event)
+  _handleSearchChange = (event => {
+    if (this.state.searchValue !== event.target.value) {
+      this.setState({searchValue: event.target.value})
     }
   })
 
-  return (
-    <section className="searchbar">
-      <form method="post">
-        <input type="text" name="shopify_search" onKeyPress={props.fillthisout}/>
-        <input type="submit" value="Search" />
-      </form>
-    </section>
-  )
+  _handleKeyPressSearch = (event => {
+    if (event.key === "Enter" && event.target.value !== "") {
+      this.props.handleSearchInput(this.state.searchValue)
+    }
+  })
+
+  _handleSearchButton = (event => {
+    this.props.handleSearchInput(this.state.searchValue)
+  })
+
+
+  render() {
+    return (
+      <section className="searchbar">
+        <input type="text" name="shopify_search" defaultValue={this.state.searchValue} onKeyPress={this._handleKeyPressSearch} onChange={this._handleSearchChange}/>
+        <input type="submit" value="Search" onClick={this._handleSearchButton}/>
+      </section>
+    )
+  }
 }
 
-export default GenerateSearchBar
+export default SearchBar

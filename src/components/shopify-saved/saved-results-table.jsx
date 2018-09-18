@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
-import GenerateSavedResult from './saved-result.jsx'
+import SavedResult from './saved-result.jsx'
 
-const GenerateSavedResultsTable = (props) => {
+const SavedResultsTable = (props) => {
 
   const generateSavedResults = props.savedResults.map((result, index) => {
-    return <GenerateSavedResult
+    return <SavedResult
       handleRemoveResult={props.handleRemoveResult}
       result={result}
       key={index}/>
   })
 
   return(
-    <main class="container-right">
+    <main className="container-right">
       <table>
         <thead>
           <tr>
@@ -29,4 +29,4 @@ const GenerateSavedResultsTable = (props) => {
   )
 }
 
-export default GenerateSavedResultsTable
+export default SavedResultsTable

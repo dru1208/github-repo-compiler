@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-const GenerateSavedResult = (props) => {
+const SavedResult = (props) => {
 
 
   const generateRemoveButton = (result => {
@@ -23,4 +23,4 @@ const GenerateSavedResult = (props) => {
 }
 
 
-export default GenerateSavedResult
+export default SavedResult

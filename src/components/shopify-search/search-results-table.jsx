@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import GenerateSearchResult from './search-result.jsx'
+import SearchResult from './search-result.jsx'
 
-const GenerateSearchResultTable = (props) => {
+const SearchResultTable = (props) => {
 
   const generateSearchResults = props.searchResults.map((result, index) => {
-    return <GenerateSearchResult
+    return <SearchResult
       result={result}
       savedResults={props.savedResults}
       handleSaveResult={props.handleSaveResult}
@@ -30,4 +30,4 @@ const GenerateSearchResultTable = (props) => {
 
 }
 
-export default GenerateSearchResultTable
+export default SearchResultTable

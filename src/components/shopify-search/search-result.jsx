@@ -3,7 +3,7 @@ import React from 'react'
 
 
 // figure out how to send the value "result" through the button
-const GenerateSearchResult = (props) => {
+const SearchResult = (props) => {
 
   const generateAddButton = (result => {
     const value = JSON.stringify(result)
@@ -26,4 +26,4 @@ const GenerateSearchResult = (props) => {
   )
 }
 
-export default GenerateSearchResult
+export default SearchResult

@@ -9,7 +9,6 @@ import processRepositories from './searchResultManagement.js'
 import { GraphQLClient } from 'graphql-request'
 // CSS emotion-js variables
 import { appHeader, appTitle, tables } from './emotion-css-app.js'
-import { css } from 'emotion'
 
 // graphQL variables for search
 const endpoint = "https://api.github.com/graphql"

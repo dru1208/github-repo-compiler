@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import SavedResult from './saved-result.jsx';
 import { table, headerRow, headerName, headerLanguage, headerTag, savedResultsTable } from "../emotion-css-tables.js"
 

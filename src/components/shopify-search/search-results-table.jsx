@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import SearchResult from './search-result.jsx'
 import { table, headerRow, headerName, headerLanguage, headerTag, headerButton } from "../emotion-css-tables.js"
 

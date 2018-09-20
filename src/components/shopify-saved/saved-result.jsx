@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { searchRow, resultName, resultLanguage, resultTag, resultButton, button } from '../emotion-css-tables.js'
 
 

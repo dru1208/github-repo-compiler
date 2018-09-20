@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import SearchBar from './searchbar.jsx'
 import SearchResultTable from './search-results-table.jsx'
 import { searchMain } from '../emotion-css-tables.js'

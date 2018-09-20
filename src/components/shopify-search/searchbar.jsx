@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { searchBar, searchInput, searchButton } from '../emotion-css-searchbar.js'
+
 
 class SearchBar extends Component {
   constructor(props) {
@@ -31,9 +33,9 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <section className="searchbar">
-        <input type="text" name="shopify_search" defaultValue={this.state.searchValue} onKeyPress={this._handleKeyPressSearch} onChange={this._handleSearchChange}/>
-        <input type="submit" value="Search" onClick={this._handleSearchButton}/>
+      <section className={searchBar}>
+        <input className={searchInput} type="text" name="shopify_search" defaultValue={this.state.searchValue} onKeyPress={this._handleKeyPressSearch} onChange={this._handleSearchChange}/>
+        <button className={searchButton} onClick={this._handleSearchButton}>Search</button>
       </section>
     )
   }

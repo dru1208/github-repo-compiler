@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import SavedResult from './saved-result.jsx'
+import React, {Component} from 'react';
+import SavedResult from './saved-result.jsx';
+import { table, headerRow, headerName, headerLanguage, headerTag, savedResultsTable } from "../emotion-css-tables.js"
 
 const SavedResultsTable = (props) => {
 
@@ -11,13 +12,13 @@ const SavedResultsTable = (props) => {
   })
 
   return(
-    <main className="container-right">
-      <table>
+    <main className={savedResultsTable}>
+      <table className={table}>
         <thead>
-          <tr>
-            <th className="table-header-name">Name</th>
-            <th className="table-header-language">Language</th>
-            <th className="table-header-tag">Latest tag</th>
+          <tr className={headerRow}>
+            <th className={headerName}>Name</th>
+            <th className={headerLanguage}>Language</th>
+            <th className={headerTag}>Latest tag</th>
             <th></th>
           </tr>
         </thead>

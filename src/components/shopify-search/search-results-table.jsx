@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import SearchResult from './search-result.jsx'
+import { table, headerRow, headerName, headerLanguage, headerTag, headerButton } from "../emotion-css-tables.js"
+
 
 const SearchResultTable = (props) => {
 
@@ -14,13 +16,13 @@ const SearchResultTable = (props) => {
 
 
   return(
-    <table>
+    <table className={table}>
       <thead>
-        <tr>
-          <th className="table-header-name">Name</th>
-          <th className="table-header-language">Language</th>
-          <th className="table-header-tag">Latest tag</th>
-          <th></th>
+        <tr className={headerRow}>
+          <th className={headerName}>Name</th>
+          <th className={headerLanguage}>Language</th>
+          <th className={headerTag}>Latest tag</th>
+          <th className={headerButton}></th>
         </tr>
       </thead>
       <tbody>

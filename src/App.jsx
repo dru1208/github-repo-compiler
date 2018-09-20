@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
-
+// components
 import SearchMain from "./components/shopify-search/search-main.jsx";
 import SavedResultsTable from "./components/shopify-saved/saved-results-table.jsx";
-
-
+// helper functions and variables for GraphQL
 import { query, variables } from './queryStrings.js';
 import { checkIncludes, removeObject} from './objectHelperFunctions.js'
 import processRepositories from './searchResultManagement.js'
-
-
 import { GraphQLClient } from 'graphql-request'
+// CSS emotion-js variables
+import { appHeader, appTitle, tables } from './emotion-css-app.js'
+import { css } from 'emotion'
 
-
-
+// graphQL variables for search
 const endpoint = "https://api.github.com/graphql"
 
 const client = new GraphQLClient (
@@ -23,6 +21,9 @@ const client = new GraphQLClient (
     }
   }
 )
+
+
+// main search component
 
 class App extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class App extends Component {
   }
 
 
-  main = async () => {
+  searchGithub = async () => {
     const data = await client.request(query, variables(this.state.query))
     const repos = data.search.edges
     const processedRepos = processRepositories(repos)
@@ -61,7 +62,7 @@ class App extends Component {
   _handleSearchInput = searchInput => {
     if (this.state.query !== searchInput && searchInput !== "") {
       this.setState({query: searchInput}, async () => {
-        this.main()
+        this.searchGithub()
       })
     }
   }
@@ -71,30 +72,30 @@ class App extends Component {
   }
 
 
-
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">My Github Favorites</h1>
+        <header className={appHeader}>
+          <h1 className={appTitle}>My Github Favorites</h1>
         </header>
-        <SearchMain
-          searchResults={this.state.searchResults}
-          savedResults={this.state.savedResults}
-          handleSaveResult={this._handleSaveResult}
+        <div className={tables}>
+          <SearchMain
+            searchResults={this.state.searchResults}
+            savedResults={this.state.savedResults}
+            handleSaveResult={this._handleSaveResult}
 
-          checkIncludes={checkIncludes}
+            checkIncludes={checkIncludes}
 
-          handleSearchInput={this._handleSearchInput}
+            handleSearchInput={this._handleSearchInput}
 
-          searchBarEmpty={this._searchBarEmpty}
+            searchBarEmpty={this._searchBarEmpty}
 
-        />
-        <SavedResultsTable
-          savedResults={this.state.savedResults}
-          handleRemoveResult={this._handleRemoveResult}
-        />
+          />
+          <SavedResultsTable
+            savedResults={this.state.savedResults}
+            handleRemoveResult={this._handleRemoveResult}
+          />
+        </div>
       </div>
     );
   }

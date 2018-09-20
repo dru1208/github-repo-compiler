@@ -1,4 +1,5 @@
 import React from 'react'
+import { searchRow, resultName, resultLanguage, resultTag, resultButton, button, hiddenButton } from '../emotion-css-tables.js'
 
 
 
@@ -8,18 +9,22 @@ const SearchResult = (props) => {
     const value = JSON.stringify(result)
     if (!props.checkIncludes(props.savedResults, result)) {
       return (
-        <td className="repo-button">
-          <button value={value} className="result-button" onClick={props.handleSaveResult}>Add</button>
+        <td className={resultButton}>
+          <button value={value} className={button} onClick={props.handleSaveResult}>Add</button>
         </td>
+      )
+    } else {
+      return (
+        <td className={resultButton}><button className={hiddenButton}></button></td>
       )
     }
   })
 
   return(
-    <tr>
-      <td className="repo-name">{props.result.name}</td>
-      <td className="repo-language">{props.result.language}</td>
-      <td className="repo-tag">{props.result.latest_tag}</td>
+    <tr className={searchRow}>
+      <td className={resultName}>{props.result.name}</td>
+      <td className={resultLanguage}>{props.result.language}</td>
+      <td className={resultTag}>{props.result.latest_tag}</td>
       {generateAddButton(props.result)}
     </tr>
   )

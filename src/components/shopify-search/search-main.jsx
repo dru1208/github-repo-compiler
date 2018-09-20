@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
 import SearchBar from './searchbar.jsx'
 import SearchResultTable from './search-results-table.jsx'
+import { searchMain } from '../emotion-css-tables.js'
+
 
 const SearchMain = (props) => {
 
   return(
-    <main className="container-left">
+    <main className={searchMain}>
       <SearchBar
         handleSearchInput={props.handleSearchInput}
         searchBarEmpty={props.searchBarEmpty}

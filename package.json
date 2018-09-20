@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "emotion": "^9.2.9",
     "graphql-request": "^1.8.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",

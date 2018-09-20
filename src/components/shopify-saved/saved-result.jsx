@@ -1,9 +1,21 @@
 import React from 'react'
-import { searchRow, resultName, resultLanguage, resultTag, resultButton, button } from '../emotion-css-tables.js'
+import { searchRow, resultName, resultURL, resultLanguage, resultTag, resultButton, button } from '../emotion-css-tables.js'
 
 
 
 const SavedResult = (props) => {
+
+  const generateNameAndURL = () => {
+    if (props.result.url !== "") {
+      return (
+        <td className={resultName}><a href={props.result.url} className={resultURL} target="_blank">{props.result.name}</a></td>
+      )
+    } else {
+      return (
+        <td className={resultName}>{props.result.name}</td>
+      )
+    }
+  }
 
   const generateRemoveButton = (result => {
     const value=JSON.stringify(result)
@@ -16,7 +28,7 @@ const SavedResult = (props) => {
 
   return (
     <tr className={searchRow}>
-      <td className={resultName}>{props.result.name}</td>
+      {generateNameAndURL()}
       <td className={resultLanguage}>{props.result.language}</td>
       <td className={resultTag}>{props.result.latest_tag}</td>
       {generateRemoveButton(props.result)}

@@ -1,9 +1,10 @@
-const query = `query GithubRepoSearch ($query: String!)
-  {search(first: 10, query: $query, type: REPOSITORY) {
+const query = `query GithubRepoSearch ($query: String!){
+  search(first: 10, query: $query, type: REPOSITORY) {
     edges {
       node {
         ... on Repository {
           nameWithOwner
+          url
           languages (first: 1) {
             edges {
               node {

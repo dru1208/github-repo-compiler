@@ -42,6 +42,11 @@ const resultName = css({
   "text-align": "left"
 })
 
+const resultURL = css({
+  "color": "black",
+  "text-decoration": "none",
+})
+
 const resultLanguage = css`
   width: 30%;
   text-align: left;
@@ -51,7 +56,6 @@ const resultTag = css`
   width: 22%;
   text-align: left;
 `
-
 
 const resultButton = css`
   width: 10%;
@@ -65,9 +69,11 @@ const button = css`
   color: #7433f1;
   text-decoration: underline;
 `
+
 const savedResultsTable = css`
   width: 50vw;
-  height: 80vh;
+  min-height: 705px;
+  height: 100%;
   background-color: #f3ecfe;
 `
 
@@ -77,6 +83,7 @@ const searchMain = css`
 
 const hiddenButton = css`
   visibility: hidden;
+  padding-top: 4px;
 `
 
 export {
@@ -88,6 +95,7 @@ export {
   headerButton,
   searchRow,
   resultName,
+  resultURL,
   resultLanguage,
   resultTag,
   resultButton,

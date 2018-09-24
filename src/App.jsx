@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+
 // components
 import SearchMain from "./components/shopify-search/search-main.jsx";
 import SavedResultsTable from "./components/shopify-saved/saved-results-table.jsx";
+
 // helper functions and variables for GraphQL
 import { query, variables } from './queryStrings.js';
 import { checkIncludes, removeObject} from './objectHelperFunctions.js'
 import processRepositories from './searchResultManagement.js'
 import { GraphQLClient } from 'graphql-request'
+
 // CSS emotion-js variables
 import { appHeader, appTitle, tables } from './emotion-css-app.js'
 

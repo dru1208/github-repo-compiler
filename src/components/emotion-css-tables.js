@@ -47,44 +47,44 @@ const resultURL = css({
   "text-decoration": "none",
 })
 
-const resultLanguage = css`
-  width: 30%;
-  text-align: left;
-`
+const resultLanguage = css({
+  "width": "30%",
+  "text-align": "left"
+})
 
-const resultTag = css`
-  width: 22%;
-  text-align: left;
-`
+const resultTag = css({
+  "width": "22%",
+  "text-align": "left"
+})
 
-const resultButton = css`
-  width: 10%;
-  text-align: left
-`
+const resultButton = css({
+  "width": "10%",
+  "text-align": "left"
+})
 
-const button = css`
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: #7433f1;
-  text-decoration: underline;
-`
+const button = css({
+  "background": "none",
+  "border": "none",
+  "font-size": "16px",
+  "color": "#7433f1",
+  "text-decoration": "underline"
+})
 
-const savedResultsTable = css`
-  width: 50vw;
-  min-height: 705px;
-  height: 100%;
-  background-color: #f3ecfe;
-`
+const savedResultsTable = css({
+  "width": "50vw",
+  "min-height": "705px",
+  "height": "100%",
+  "background-color": "#f3ecfe"
+})
 
-const searchMain = css`
-  width: 50vw;
-`
+const searchMain = css({
+  "width": "50vw"
+})
 
-const hiddenButton = css`
-  visibility: hidden;
-  padding-top: 4px;
-`
+const hiddenButton = css({
+  "visibility": "hidden",
+  "padding-top": "4px"
+})
 
 export {
   table,

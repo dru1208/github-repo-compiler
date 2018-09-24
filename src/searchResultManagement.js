@@ -1,6 +1,7 @@
+// used to find major, minor, patch of release tag
 const regexVersion = /(\d+\.){1,2}\d+/
 
-
+// used to transform graphql request information into the right format for the react state
 const processRepository = (repository) => {
   const languages = repository.node.languages.edges
   const releases = repository.node.releases.edges

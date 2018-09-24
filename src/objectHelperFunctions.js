@@ -23,11 +23,8 @@ const removeObject = ((array, valueObject) => {
   return newArray;
 })
 
-const newValue = {name: "Shopify/Polaris", language: "Typescript", latest_tag: "v1.0.0"}
-// take this out after you do the api call
 
 export {
   checkIncludes,
-  removeObject,
-  newValue
+  removeObject
 }
